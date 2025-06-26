@@ -1,0 +1,201 @@
+// union datatypes
+// var fname: string | number = "mona";
+
+// fname = "ola"; //
+// fname = 10; //
+// fname = true;
+
+// function
+// custom datatypes
+
+// array
+
+// var arr: string[] = ["mona", "ali", "amkdk"];
+
+// var arr2: number[] = [10, 20, 40];
+
+// var arr3: any[] = ["mona", 10, {}, []];
+// var arr4: (string | number)[] = ["mona", 10];
+
+// arr4.push(true); //Error
+// arr.push("ali");
+// arr.push(10);
+// arr.push(true);
+
+// define custom type
+
+// type stringOrNumber = string | number;
+
+// var x: stringOrNumber = "hello";
+
+// var arr1: Array<stringOrNumber> = ["mona", "pet", 10, 20]; //
+// var arr2: stringOrNumber[] = [];
+
+/// line
+// var x: any = 5;
+
+// x = "hello";
+
+// x = function () {};
+
+// x.toUpperCase(); // Error
+// console.log("------------------------");
+
+// var y: unknown = 5;
+// y = "hello";
+// if (typeof y == "string") {
+// 	y.toUpperCase(); // runTime
+// }
+//  object
+//functions
+// oop
+
+// let person: { fname: string; age: number } = { fname: "ali", age: 20 };
+// let person: { fname: string; age: number };
+
+// person = { fname: "mona", age: 20 };
+
+// person.fname = "ahmed";
+
+// person.age = 40;
+/**====================== */
+
+// let products: { id: number; name: string; price: number }[] = [
+// 	{
+// 		id: 1,
+// 		name: "Book",
+// 		price: 200,
+// 	},
+// 	{
+// 		id: 2,
+// 		name: "Pen",
+// 		price: 100,
+// 	},
+// ];
+
+// let person: Object = { id: 1, name: "ali" };
+
+// person = "alaa"; // valid
+
+// person = 30; //valid
+
+// let product: { id: number; name: string }[] = [];
+
+// product.push("ali"); // error
+
+// line by line == string.toUpperCase()
+// var x = function () {}; // line to
+
+// line execution phase
+// function sayHello() {
+// 	console.log("Hello dotnet");
+// }
+
+// function sum(x, y) {
+// 	return x + y;
+// }
+// // sum(); //Error
+// // sum(20); // Error
+// sum(10, 20); //valid
+// sum("mona", "alaa"); //valid
+// // sum("mona", "alaa", 20, 40); //Error
+// console.log("=============default param (optional) ===========");
+
+// function sum(x: number = 0, y: number = 0) {
+// 	return x + y;
+// }
+// sum(); // valid if there are a default values
+
+// sum("mona", "alaa"); // Error
+// sum(10, 20); // valid
+
+// function add(x: number, y: number = 0) {
+// 	console.log(y);
+// }
+
+// add(10); //valid
+
+// should be throw Error
+// run time == angular -- ocngigration
+// function sum(x, y): number {
+// 	///////////////////
+
+// 	return x + y;
+// }
+
+// var x = sum("mona", "ali");
+
+// console.log(x);
+
+// fix errors
+// var fname = "mona";
+
+// fname = 10;
+
+// console.log(fname);
+
+// function sum(x: number, y: number, ...rest: string[]) {}
+
+// sum(10, 20, "mona", "alaa"); // error
+// class Person {
+// 	id: number;
+// 	fname: string;
+// 	age: number;
+// 	constructor(id: number, fname: string, age: number) {
+// 		this.id = id;
+// 		this.fname = fname;
+// 		this.age = age;
+// 	}
+// }
+
+// let p1 = new Person(1, "mona", 20);
+// Encupsulation -- access modifier
+
+// oop -- class -
+// class Person {
+// 	constructor(public id: number, public fname: string, private age: number) {}
+
+// 	// props
+// 	get getAge() {
+// 		return this.age;
+// 	}
+
+// 	set setAge(value: number) {
+// 		this.age = value;
+// 	}
+// }
+
+// let p1 = new Person(1, "mona", 20);
+// console.log(p1.getAge); //property -- get
+// p1.setAge = 30; // set
+// // p1.setAge(30); //set
+// // console.log(p1.getAge()); //get
+// console.log("-------------------------");
+// // p1.age = 30; //Error
+// // public
+// p1.fname = "ahmed"; // set
+// console.log(p1.fname); // get
+class Person {
+	// initalization
+	constructor(public fname: string, public age: number) {}
+	display(): void {
+		console.log("Hello display");
+	}
+}
+
+class User extends Person {
+	constructor(fname: string, age: number, public password: string) {
+		super(fname, age);
+	}
+
+	override display(): void {
+		console.log("override");
+	}
+	generatePassword(): string {
+		return this.password.toUpperCase() + "@#$$";
+	}
+}
+
+let myUser = new User("ali", 20, "aliDFG");
+console.log(myUser.generatePassword());
+myUser.display();
