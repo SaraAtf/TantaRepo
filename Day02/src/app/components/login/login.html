@@ -1,0 +1,27 @@
+<!-- <div class="container p-5 bg-light mt-5">
+  <h2 class="text-center text-muted">Login Form</h2>
+  <input
+    type="text"
+    name="username"
+    [(ngModel)]="username"
+    class="mt-3 form-control"
+    placeholder="Enter Your Name"
+  />
+  <input
+    type="password"
+    name="userPassword"
+    [(ngModel)]="password"
+    class="mt-3 form-control"
+    placeholder="Enter Your Password"
+  />
+  <p>{{username}} : {{password}}</p>
+  <button class="btn btn-success mt-4" (click)="login()">Login</button>
+</div> -->
+
+<div class="container p-5 bg-light mt-5">
+  <input type="text" #myInput (input)="getInputData(myInput.value)" />
+  <h2 class="text-center text-muted" #myHeader>Dotnet Tanta</h2>
+  <button class="btn btn-success mt-4" (click)="execute(myHeader)">
+    get Header
+  </button>
+</div>

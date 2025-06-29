@@ -1,0 +1,98 @@
+<!-- <div class="container p-5">
+  <h1>Structural Directives</h1>
+
+  <div class="row">
+    @for (product of products; track product.id;) {
+    <div class="border p-3 mt-3 col-sm-6">
+      <h1>{{$index}} : {{product.name}}</h1>
+      <p class="lead fs-2">First Item : {{$first}}</p>
+      <p class="lead fs-2">Even Item : {{$even}}</p>
+      <p class="lead fs-2">Odd Item : {{$odd}}</p>
+    </div>
+    }@empty {
+    <div class="alert alert-warning">No Products Founded</div>
+    }
+  </div>
+  <hr />
+  <div class="row">
+    <div *ngFor="let x of products" class="border p-3 mt-3 col-sm-6">
+      <h1>hello :{{x.name}}</h1>
+    </div>
+  </div>
+</div> -->
+
+<!-- @If -->
+<!-- <div class="container p-5">
+  <h1>Structural Directives : {{flag}}</h1>
+
+  @if(color == 'red'){
+  <p class="lead p-3 alert alert-danger mt-4">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente magni
+    deserunt numquam rem. Assumenda saepe repudiandae totam porro
+    necessitatibus. Commodi, molestiae consequatur dolores voluptate corrupti
+    modi sed maiores quam quisquam.
+  </p>
+
+  }@else if(color == 'green'){
+  <p class="lead p-3 alert alert-success mt-4">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente magni
+    deserunt numquam rem. Assumenda saepe repudiandae totam porro
+    necessitatibus. Commodi, molestiae consequatur dolores voluptate corrupti
+    modi sed maiores quam quisquam.
+  </p>
+  }@else if(color == 'blue'){
+  <p class="lead p-3 alert alert-primary mt-4">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente magni
+    deserunt numquam rem. Assumenda saepe repudiandae totam porro
+    necessitatibus. Commodi, molestiae consequatur dolores voluptate corrupti
+    modi sed maiores quam quisquam.
+  </p>
+  }@else {
+  <p class="lead p-3 alert alert-light mt-4">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente magni
+    deserunt numquam rem. Assumenda saepe repudiandae totam porro
+    necessitatibus. Commodi, molestiae consequatur dolores voluptate corrupti
+    modi sed maiores quam quisquam.
+  </p>
+  }
+
+  <button (click)="toggle()" class="btn btn-dark mt-4">toggle</button>
+</div> -->
+
+<!-- @switch -->
+<div class="container p-5">
+  <h1>Structural Directives : {{flag}}</h1>
+
+  @switch (color) { @case ('red') {
+  <p class="lead p-3 alert alert-danger mt-4">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente magni
+    deserunt numquam rem. Assumenda saepe repudiandae totam porro
+    necessitatibus. Commodi, molestiae consequatur dolores voluptate corrupti
+    modi sed maiores quam quisquam.
+  </p>
+  } @case ('green') {
+  <p class="lead p-3 alert alert-success mt-4">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente magni
+    deserunt numquam rem. Assumenda saepe repudiandae totam porro
+    necessitatibus. Commodi, molestiae consequatur dolores voluptate corrupti
+    modi sed maiores quam quisquam.
+  </p>
+  } @case ('blue') {
+  <p class="lead p-3 alert alert-primary mt-4">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente magni
+    deserunt numquam rem. Assumenda saepe repudiandae totam porro
+    necessitatibus. Commodi, molestiae consequatur dolores voluptate corrupti
+    modi sed maiores quam quisquam.
+  </p>
+  } @default{
+
+  <p class="lead p-3 alert alert-light mt-4">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente magni
+    deserunt numquam rem. Assumenda saepe repudiandae totam porro
+    necessitatibus. Commodi, molestiae consequatur dolores voluptate corrupti
+    modi sed maiores quam quisquam.
+  </p>
+  } }
+
+  <button (click)="toggle()" class="btn btn-dark mt-4">toggle</button>
+</div>
