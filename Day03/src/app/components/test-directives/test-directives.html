@@ -1,0 +1,36 @@
+<div class="container p-5 border mt-5 rounded">
+  <h1 class="text-muted mb-4">Styling : {{flag}}</h1>
+  <!-- <p class="lead mb-4" [class.customStyle]="flag">
+    {{flag?"Buy Now":"Solid Out"}}
+  </p>
+  <hr />
+  <p
+    class="lead mb-4"
+    [ngClass]="{
+        customStyle:flag,
+       'bg-dark p-3 text-light':!flag
+    }"
+  >
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique autem
+    facere blanditiis rem asperiores placeat est vel eveniet, laudantium veniam
+    repellat ea odit voluptatibus commodi voluptate culpa, tempora dolorum
+    minima.
+  </p> -->
+  <p class="lead mb-4 fw-bold" [style.color]="flag?'red':'green'">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum, animi?
+  </p>
+  <hr />
+  <p
+    class="lead mb-4 fw-bold"
+    [ngStyle]="{
+    color:flag?'red':'green',
+    background:flag ?'#000':'#eee'
+  }"
+  >
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique autem
+    facere blanditiis rem asperiores placeat est vel eveniet, laudantium veniam
+    repellat ea odit voluptatibus commodi voluptate culpa, tempora dolorum
+    minima.
+  </p>
+  <button (click)="toggle()" class="btn btn-dark mt-4">Toggle</button>
+</div>

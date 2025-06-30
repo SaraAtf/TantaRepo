@@ -1,0 +1,9 @@
+<!-- <div class="container mt-5">
+  <h2 class="mb-4">app Component : {{trackName}}</h2>
+  <p class="lead fs-2 my-3">OrgName : {{ourOrgName}}</p>
+  <app-content [x]="trackName" [orgName]="ourOrgName" />
+  <app-login (myEvent)="getData($event)" />
+</div> -->
+<app-navbar [cartNumber]="count" />
+
+<app-products (onAddProductToCart)="getCount($event)" />
