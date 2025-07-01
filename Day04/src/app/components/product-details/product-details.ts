@@ -48,6 +48,7 @@ export class ProductDetails
 
   ngOnInit(): void {
     console.log('3-OnInit');
+    this.myEvent.emit(this.orgName);
   }
   ngOnChanges(changes: SimpleChanges): void {
     console.log('2-OnChanges');
