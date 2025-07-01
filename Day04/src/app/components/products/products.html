@@ -1,0 +1,13 @@
+<div class="container p-5 mt-5 border rounded">
+  <h2>Our Products</h2>
+  <app-product-details
+    (myEvent)="getData($event)"
+    [product]="product"
+    [trackName]="trackName"
+  />
+
+  <!-- <button class="btn btn-dark" (click)="changeTrackName()">
+    Change TrackName
+  </button> -->
+  <button class="btn btn-success mt-4" (click)="getOffer()">Get Offer</button>
+</div>

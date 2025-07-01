@@ -1,0 +1,27 @@
+<div class="mt-5 p-4 border rounded">
+  <h2 class="text-center mb-5" #myH2>Product Details : {{trackName}}</h2>
+  <p class="lead mt-3 fs-3">{{user | json}}</p>
+  <p class="lead mt-3 fs-3">{{123 | currency}}</p>
+  <p class="lead mt-3 fs-3">{{currentDate | date:"short"}}</p>
+  <p class="lead mt-3 fs-3">
+    Product Name : <strong>{{product.name | uppercase}}</strong>
+  </p>
+  <p class="lead mt-3 fs-3">
+    Product Name : <strong>{{'HELLO' | lowercase}}</strong>
+  </p>
+  <p class="lead mt-3 fs-3">
+    Product Name : <strong>{{'hello at iti' | titlecase }}</strong>
+  </p>
+  @if (previousPrice) {
+  <p class="lead mt-3">
+    Before Offer :
+    <strong class="text-decoration-line-through text-danger"
+      >{{previousPrice}}</strong
+    >
+  </p>
+  }
+  <p class="lead mt-3">
+    Product Price: <strong class="text-success">{{product.price}}</strong>
+  </p>
+</div>
+<!-- @ViewChild -->
