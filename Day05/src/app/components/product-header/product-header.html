@@ -1,0 +1,13 @@
+<h1 class="mb-3 text-center text-muted">Our Products</h1>
+<div class="alert alert-light mt-3 d-flex justify-content-between">
+  <div>
+    <button [routerLink]="['/products',0,'edit']" class="btn btn-outline-dark">
+      Add New Product
+    </button>
+  </div>
+  <div class="d-flex justify-content-between">
+    <input type="text" class="form-control w-25" placeholder="Filter By" />
+    <input type="text" class="form-control w-25" placeholder="Search" />
+    <button class="btn btn-success">Filter By</button>
+  </div>
+</div>
