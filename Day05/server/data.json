@@ -1,0 +1,27 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "ali"
+    },
+    {
+      "id": "2",
+      "name": "Mona"
+    }
+  ],
+  "products": [
+    {
+      "id": "50d7",
+      "name": "watch",
+      "price": 4000,
+      "quantity": 10
+    },
+    {
+      "name": "Pen updated",
+      "price": "100",
+      "quantity": "20",
+      "id": "2570"
+    }
+  ],
+  "students": []
+}

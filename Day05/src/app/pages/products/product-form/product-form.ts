@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { StaticProduct } from '../../../services/static-product';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DynamicProductService } from '../../../services/dynamic-product-service';
 
 @Component({
   selector: 'app-product-form',
@@ -20,12 +21,35 @@ export class ProductForm implements OnInit {
   //
 
   constructor(
-    private productService: StaticProduct,
+    private productService: DynamicProductService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {}
   ngOnInit(): void {
-    this.productId = this.activatedRoute.snapshot.paramMap.get('id');
+    //id == observable pattern == subscribe(logic)
+    // this.productId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.activatedRoute.paramMap.subscribe({
+      next: (params) => {
+        this.productId = params.get('id');
+        this.getName.setValue('');
+        this.getPrice.setValue('');
+        this.getQuantity.setValue('');
+      },
+      error: () => {},
+    });
+
+    if (this.productId != 0) {
+      this.productService.getProductById(this.productId).subscribe({
+        next: (response) => {
+          this.getName.setValue(response.name);
+          this.getPrice.setValue(response.price.toString());
+          this.getQuantity.setValue(response.quantity.toString());
+        },
+        error: (error) => {
+          console.log(error);
+        },
+      });
+    }
   }
   productForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -45,10 +69,28 @@ export class ProductForm implements OnInit {
 
   productHandler() {
     if (this.productForm.status == 'VALID') {
-      let id = this.productService.products.length + 1;
-      console.log({ id, ...this.productForm.value });
-      this.productService.addProduct({ id, ...this.productForm.value });
-      this.router.navigate(['/products']);
+      if (this.productId == 0) {
+        //add
+        this.productService.addNewProduct(this.productForm.value).subscribe({
+          next: () => {
+            this.router.navigate(['/products']);
+          },
+          error: (error) => {
+            console.log(error);
+          },
+        });
+      } else {
+        this.productService
+          .editProduct(this.productId, this.productForm.value)
+          .subscribe({
+            next: () => {
+              this.router.navigate(['/products']);
+            },
+            error: (error) => {
+              console.log(error);
+            },
+          });
+      }
     } else {
       console.log('Fix Errors');
     }

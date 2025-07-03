@@ -25,7 +25,10 @@
             [routerLink]="[product.id]"
             class="text-warning fs-3 mx-1 bi bi-eye-fill"
           ></i>
-          <i class="text-danger fs-3 mx-1 bi bi-trash3-fill"></i>
+          <i
+            class="text-danger fs-3 mx-1 bi bi-trash3-fill"
+            (click)="deleteHandler(product.id)"
+          ></i>
         </td>
       </tr>
       }

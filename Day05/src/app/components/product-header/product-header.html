@@ -6,8 +6,19 @@
     </button>
   </div>
   <div class="d-flex justify-content-between">
-    <input type="text" class="form-control w-25" placeholder="Filter By" />
-    <input type="text" class="form-control w-25" placeholder="Search" />
-    <button class="btn btn-success">Filter By</button>
+    <input
+      type="text"
+      name="size"
+      class="form-control w-25"
+      placeholder="size"
+      [(ngModel)]="size"
+    />
+    <input
+      type="text"
+      class="form-control w-25"
+      placeholder="category"
+      [(ngModel)]="category"
+    />
+    <button class="btn btn-success" (click)="filterBy()">Filter By</button>
   </div>
 </div>

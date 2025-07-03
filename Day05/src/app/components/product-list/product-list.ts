@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { StaticProduct } from '../../services/static-product';
 import { IProduct } from '../../model/iproduct';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { DynamicProductService } from '../../services/dynamic-product-service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-list',
@@ -12,8 +14,33 @@ import { RouterLink } from '@angular/router';
 })
 export class ProductList implements OnInit {
   products: IProduct[] = [];
-  constructor(private productService: StaticProduct) {}
+  constructor(
+    private productService: DynamicProductService,
+    private cdr: ChangeDetectorRef
+  ) {}
   ngOnInit(): void {
-    this.products = this.productService.getAllProducts();
+    this.productService.getAllProducts().subscribe({
+      next: (response) => {
+        this.products = response;
+        this.cdr.detectChanges();
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
+  }
+
+  deleteHandler(productId: string) {
+    this.productService.deleteProduct(productId).subscribe({
+      next: (response) => {
+        this.products = this.products.filter(
+          (product) => product.id != productId
+        );
+        this.cdr.detectChanges();
+      },
+      error: (error) => {
+        console.log(error);
+      },
+    });
   }
 }
